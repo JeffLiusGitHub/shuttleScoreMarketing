@@ -24,7 +24,7 @@ function canonical(pathname) {
 }
 
 const baseMeta = {
-  title: 'ShuttleScore - Apple Watch badminton scoring and local AI coach',
+  title: 'ShuttleScore - Score fast. Train smarter.',
   description: siteConfig.description,
   image: `${siteConfig.siteUrl}/og-default.png`,
   type: 'website',
@@ -38,9 +38,9 @@ export function getPageMeta(url) {
     return {
       ...baseMeta,
       pathname,
-      title: 'ShuttleScore - Score badminton with Apple Watch and understand your game',
+      title: 'ShuttleScore - Score fast. Train smarter.',
       description:
-        'Score badminton on Apple Watch, sync to iPhone, and get local coaching insights across performance, heart rate, recovery, progress, and training.'
+        'Score badminton on Apple Watch, show the match on iPhone, and get local coaching after the final rally.'
     };
   }
 

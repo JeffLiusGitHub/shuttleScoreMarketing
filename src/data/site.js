@@ -1,8 +1,7 @@
 export const siteConfig = {
   appName: 'ShuttleScore',
-  tagline: 'Score your match. Understand your game.',
-  description:
-    'Apple Watch scoring and local, explainable badminton coaching for players who want to understand points, heart rate, fitness, recovery, and training priorities.',
+  tagline: 'Score fast. Train smarter.',
+  description: 'Apple Watch scoring, iPhone scoreboard, and local AI coaching for badminton.',
   siteUrl: import.meta.env.VITE_SITE_URL || 'https://shuttlescore.app',
   appStoreUrl: import.meta.env.VITE_APP_STORE_URL || 'https://apps.apple.com/app/shuttlescore',
   supportEmail: import.meta.env.VITE_SUPPORT_EMAIL || 'support@shuttlescore.app',
@@ -24,34 +23,34 @@ export const navLinks = [
 
 export const features = [
   {
-    title: 'Apple Watch Scoring',
-    description: 'Add points during real rallies without reaching for your phone. The iPhone scoreboard follows the active match state.',
+    title: 'Watch Scoring',
+    description: 'Pinch, tap, or turn the Crown.',
     icon: 'watch'
   },
   {
-    title: 'Local AI Coach',
-    description: 'Turn scores, point timing, heart rate, and motion into deterministic coaching cards that explain what changed.',
-    icon: 'brain'
-  },
-  {
-    title: 'Hexagon Performance',
-    description: 'Review serve, receive, rotation, clutch, momentum, and tempo as one readable performance profile.',
+    title: 'iPhone Scoreboard',
+    description: 'Big score, server, side, and time.',
     icon: 'radar'
   },
   {
-    title: 'Fitness Context',
-    description: 'Connect heart rate and point outcomes so fatigue, pressure, and second-half drop-offs are easier to understand.',
+    title: 'Match Setup',
+    description: 'Singles, doubles, points, games, colours.',
+    icon: 'setup'
+  },
+  {
+    title: 'Heart Rate Context',
+    description: 'See when fatigue changes points.',
     icon: 'heart'
   },
   {
-    title: 'Recovery Guidance',
-    description: 'See recovery demand, likely fatigue type, body focus, and whether the next session should be lighter.',
-    icon: 'battery'
+    title: 'Local AI Coach',
+    description: 'A clear next drill after each match.',
+    icon: 'brain'
   },
   {
-    title: 'Progress History',
-    description: 'Filter singles or doubles, wins or losses, and recent trends to see whether your game is moving forward.',
-    icon: 'chart'
+    title: 'History and Trends',
+    description: 'Notes, filters, and progress trends.',
+    icon: 'history'
   }
 ];
 
@@ -59,20 +58,20 @@ export const pricingTiers = [
   {
     name: 'Free',
     price: '$0',
-    description: 'For players who want a clean match scorer.',
-    items: ['Apple Watch scoring', 'iPhone live scoreboard', 'Basic match history']
+    description: 'Start scoring.',
+    items: ['Watch and iPhone scoring', 'Recent match history', 'Starter analysis']
   },
   {
     name: 'Pro',
     price: 'Monthly or yearly',
-    description: 'For players who want the local coach and deeper trends.',
-    items: ['Full AI coach cards', 'Fitness and recovery insights', 'Progress charts', 'Advanced history filters'],
+    description: 'Train with the evidence.',
+    items: ['Local AI Coach', 'Heart-rate and recovery insights', 'Full history and trends', 'HealthKit workout analysis'],
     highlighted: true
   },
   {
     name: 'Lifetime',
     price: 'One-time',
-    description: 'For regular players who want long-term ownership.',
-    items: ['All Pro features', 'Lifetime access', 'Future local coaching upgrades']
+    description: 'Own the coach.',
+    items: ['All Pro features', 'Lifetime access', 'Future coaching upgrades']
   }
 ];

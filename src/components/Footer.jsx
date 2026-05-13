@@ -7,8 +7,8 @@ export default function Footer() {
     <footer className="site-footer">
       <div className="footer-cta">
         <div>
-          <p className="eyebrow">Ready for the next match</p>
-          <h2>Score the game, then train from the evidence.</h2>
+          <p className="eyebrow">Next rally</p>
+          <h2>Score fast. Train smarter.</h2>
         </div>
         <AppStoreButton source="footer" />
       </div>
