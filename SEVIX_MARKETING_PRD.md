@@ -1,18 +1,18 @@
-# ShuttleScore Marketing Website PRD
+# Sevix Marketing Website PRD
 
-This project adapts `MARKETING_PRD_GENERIC_APPLE_APP.md` for ShuttleScore.
+This project adapts `MARKETING_PRD_GENERIC_APPLE_APP.md` for Sevix.
 
 ## Product Positioning
 
-ShuttleScore is an Apple Watch + iPhone badminton scoring app with a local, deterministic AI coach.
+Sevix is an Apple Watch + iPhone badminton scoring app with a local, deterministic AI coach.
 
 Primary promise:
 
-> Score your match. Understand your game.
+> Score the rally. Train with evidence.
 
 Secondary promise:
 
-> Fast Apple Watch scoring with iPhone sync and local coaching insights across six-dimension performance, fitness, heart rate, recovery, progress, and training.
+> Apple Watch scoring, iPhone sync, and local coaching evidence across six-dimension performance, fitness, heart rate, recovery, progress, and training.
 
 ## Target Users
 
@@ -34,7 +34,7 @@ Secondary promise:
 
 Sections:
 
-- Hero with ShuttleScore name, Apple Watch + iPhone value prop, App Store CTA, actual product-style mockups.
+- Hero with Sevix name, Apple Watch + iPhone value prop, App Store CTA, actual product-style mockups.
 - Feature grid covering scoring, local AI coach, hexagon performance, fitness, recovery, and progress history.
 - Live scoring feature section.
 - Local AI coach feature section.
@@ -76,4 +76,10 @@ Guide topics:
 
 ## Launch Notes
 
-Before public launch, replace placeholder App Store URL, support email, final legal copy, and production domain.
+Configured public URLs:
+- Marketing site: `https://sevix-badminton.netlify.app`
+- Future custom domain target: `https://sevix.app` (Netlify reported this domain is not registered yet)
+- App Store: `https://apps.apple.com/app/id6764564793`
+- Support: `support@sevix.app`
+
+Before public launch, review final legal copy, confirm the support mailbox is active, and register/connect `sevix.app` if it will be used as the branded domain.

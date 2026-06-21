@@ -6,7 +6,7 @@ export default function ContactPage() {
     <section className="page-section contact-page">
       <div className="page-heading">
         <p className="eyebrow">Contact</p>
-        <h1>Support and feedback for ShuttleScore.</h1>
+        <h1>Support and feedback for {siteConfig.appName}.</h1>
         <p>
           Send bug reports, TestFlight feedback, subscription questions, and product ideas. Avoid sending unnecessary
           health or personal data by email.

@@ -10,7 +10,7 @@ export const guides = [
     updatedAt: '2026-05-03',
     sources: [
       { label: 'Apple Watch app design guidance', href: 'https://developer.apple.com/design/human-interface-guidelines/watchos' },
-      { label: 'ShuttleScore local scoring model', href: '/' }
+      { label: 'Sevix local scoring model', href: '/' }
     ]
   },
   {
@@ -24,7 +24,7 @@ export const guides = [
     updatedAt: '2026-05-03',
     sources: [
       { label: 'Apple HealthKit overview', href: 'https://developer.apple.com/health-fitness/' },
-      { label: 'ShuttleScore local AI coach model', href: '/' }
+      { label: 'Sevix local AI coach model', href: '/' }
     ]
   },
   {
@@ -38,7 +38,7 @@ export const guides = [
     updatedAt: '2026-05-03',
     sources: [
       { label: 'Apple Health and fitness technologies', href: 'https://developer.apple.com/health-fitness/' },
-      { label: 'ShuttleScore fitness insight model', href: '/' }
+      { label: 'Sevix fitness insight model', href: '/' }
     ]
   },
   {
@@ -52,7 +52,7 @@ export const guides = [
     updatedAt: '2026-05-03',
     sources: [
       { label: 'Badminton World Federation', href: 'https://bwfbadminton.com/' },
-      { label: 'ShuttleScore match mode model', href: '/' }
+      { label: 'Sevix match mode model', href: '/' }
     ]
   },
   {
@@ -66,7 +66,7 @@ export const guides = [
     updatedAt: '2026-05-03',
     sources: [
       { label: 'Apple Health and Fitness', href: 'https://www.apple.com/healthcare/health-records/' },
-      { label: 'ShuttleScore recovery score', href: '/' }
+      { label: 'Sevix recovery score', href: '/' }
     ]
   },
   {
@@ -80,7 +80,7 @@ export const guides = [
     updatedAt: '2026-05-03',
     sources: [
       { label: 'Apple privacy principles', href: 'https://www.apple.com/privacy/' },
-      { label: 'ShuttleScore explainable coach', href: '/' }
+      { label: 'Sevix explainable coach', href: '/' }
     ]
   }
 ];

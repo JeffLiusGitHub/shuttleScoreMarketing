@@ -1,11 +1,11 @@
 export const siteConfig = {
-  appName: 'ShuttleScore',
-  tagline: 'Score fast. Train smarter.',
-  description: 'Apple Watch scoring, iPhone scoreboard, and local AI coaching for badminton.',
-  siteUrl: import.meta.env.VITE_SITE_URL || 'https://shuttlescore.app',
-  appStoreUrl: import.meta.env.VITE_APP_STORE_URL || 'https://apps.apple.com/app/shuttlescore',
-  supportEmail: import.meta.env.VITE_SUPPORT_EMAIL || 'support@shuttlescore.app',
-  copyrightName: 'ShuttleScore',
+  appName: 'Sevix',
+  tagline: 'Score the rally. Train with evidence.',
+  description: 'Apple Watch scoring, iPhone scoreboard, and local coaching evidence for badminton.',
+  siteUrl: import.meta.env.VITE_SITE_URL || 'https://sevix-badminton.netlify.app',
+  appStoreUrl: import.meta.env.VITE_APP_STORE_URL || 'https://apps.apple.com/app/id6764564793',
+  supportEmail: import.meta.env.VITE_SUPPORT_EMAIL || 'support@sevix.app',
+  copyrightName: 'Sevix',
   socialLinks: [
     { label: 'X', href: '#coming-soon' },
     { label: 'Threads', href: '#coming-soon' },

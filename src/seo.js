@@ -24,7 +24,7 @@ function canonical(pathname) {
 }
 
 const baseMeta = {
-  title: 'ShuttleScore - Score fast. Train smarter.',
+  title: `${siteConfig.appName} - ${siteConfig.tagline}`,
   description: siteConfig.description,
   image: `${siteConfig.siteUrl}/og-default.png`,
   type: 'website',
@@ -38,9 +38,9 @@ export function getPageMeta(url) {
     return {
       ...baseMeta,
       pathname,
-      title: 'ShuttleScore - Score fast. Train smarter.',
+      title: `${siteConfig.appName} - ${siteConfig.tagline}`,
       description:
-        'Score badminton on Apple Watch, show the match on iPhone, and get local coaching after the final rally.'
+        'Score each badminton rally on Apple Watch, keep iPhone synced courtside, and review local coaching evidence after the match.'
     };
   }
 
@@ -48,7 +48,7 @@ export function getPageMeta(url) {
     return {
       ...baseMeta,
       pathname,
-      title: 'Badminton scoring and training guides - ShuttleScore',
+      title: 'Badminton scoring and training guides - Sevix',
       description:
         'Decision-focused guides about Apple Watch badminton scoring, local AI coaching, heart-rate insights, recovery, singles, and doubles.'
     };
@@ -63,7 +63,7 @@ export function getPageMeta(url) {
         ...baseMeta,
         pathname,
         type: 'article',
-        title: `${guide.question} - ShuttleScore Guide`,
+        title: `${guide.question} - Sevix Guide`,
         description: guide.answer,
         guide
       };
@@ -74,8 +74,8 @@ export function getPageMeta(url) {
     return {
       ...baseMeta,
       pathname,
-      title: 'Privacy Policy - ShuttleScore',
-      description: 'How ShuttleScore handles match, workout, analytics, and support data.'
+      title: 'Privacy Policy - Sevix',
+      description: 'How Sevix handles match, workout, analytics, and support data.'
     };
   }
 
@@ -83,8 +83,8 @@ export function getPageMeta(url) {
     return {
       ...baseMeta,
       pathname,
-      title: 'Terms of Service - ShuttleScore',
-      description: 'The terms that apply when using ShuttleScore and its subscription features.'
+      title: 'Terms of Service - Sevix',
+      description: 'The terms that apply when using Sevix and its subscription features.'
     };
   }
 
@@ -92,8 +92,8 @@ export function getPageMeta(url) {
     return {
       ...baseMeta,
       pathname,
-      title: 'Contact ShuttleScore Support',
-      description: 'Get support for ShuttleScore, report bugs, and send product feedback.'
+      title: 'Contact Sevix Support',
+      description: 'Get support for Sevix, report bugs, and send product feedback.'
     };
   }
 
@@ -101,8 +101,8 @@ export function getPageMeta(url) {
     ...baseMeta,
     pathname,
     status: 404,
-    title: 'Page not found - ShuttleScore',
-    description: 'This ShuttleScore marketing page could not be found.'
+    title: 'Page not found - Sevix',
+    description: 'This Sevix marketing page could not be found.'
   };
 }
 

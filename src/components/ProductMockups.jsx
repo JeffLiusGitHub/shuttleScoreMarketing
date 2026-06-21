@@ -10,6 +10,7 @@ import {
   RotateCw,
   Watch
 } from 'lucide-react';
+import { siteConfig } from '../data/site.js';
 
 export function HeroProductMockup() {
   const [score, setScore] = useState({ home: 7, guest: 4 });
@@ -42,7 +43,7 @@ export function HeroProductMockup() {
   }
 
   return (
-    <div className="hero-product" aria-label="ShuttleScore iPhone and Apple Watch product preview">
+    <div className="hero-product" aria-label={`${siteConfig.appName} iPhone and Apple Watch product preview`}>
       <div className="phone-scoreboard-frame">
         <div className="phone-scoreboard-screen">
           <div className="scoreboard-topline">

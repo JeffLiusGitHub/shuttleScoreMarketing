@@ -2,6 +2,7 @@ import { ArrowLeft, ExternalLink } from 'lucide-react';
 import { Link, useParams } from 'react-router-dom';
 import AppStoreButton from '../components/AppStoreButton.jsx';
 import { findGuide, relatedGuides } from '../data/guides.js';
+import { siteConfig } from '../data/site.js';
 
 export default function GuideDetailPage() {
   const { slug } = useParams();
@@ -46,9 +47,9 @@ export default function GuideDetailPage() {
         </section>
 
         <section>
-          <h2>Where ShuttleScore fits</h2>
+          <h2>Where {siteConfig.appName} fits</h2>
           <p>
-            ShuttleScore is built for players who want the scoring flow to stay lightweight during play, then want an
+            {siteConfig.appName} is built for players who want the scoring flow to stay lightweight during play, then want an
             explainable review after the match. The app connects point outcomes, match mode, fitness context, recovery,
             and progress instead of treating each metric as an isolated number.
           </p>

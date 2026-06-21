@@ -80,5 +80,5 @@ function resolvePort(startPort, attemptsLeft = 10) {
 }
 
 app.listen(port, host, () => {
-  console.log(`ShuttleScore marketing site running at http://${host}:${port}`);
+  console.log(`Sevix marketing site running at http://${host}:${port}`);
 });

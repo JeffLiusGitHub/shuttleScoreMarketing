@@ -10,7 +10,7 @@ export default function Header() {
   return (
     <header className="site-header">
       <div className="header-inner">
-        <Link className="brand-link" to="/" aria-label="ShuttleScore home" onClick={() => setOpen(false)}>
+        <Link className="brand-link" to="/" aria-label={`${siteConfig.appName} home`} onClick={() => setOpen(false)}>
           <img src="/assets/app-icon.png" alt="" />
           <span>{siteConfig.appName}</span>
         </Link>

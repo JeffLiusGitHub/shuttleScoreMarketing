@@ -1,6 +1,6 @@
-# ShuttleScore Marketing Website
+# Sevix Marketing Website
 
-Vite + React SSR marketing site for ShuttleScore.
+Vite + React SSR marketing site for Sevix.
 
 ## Stack
 
@@ -31,9 +31,9 @@ npm run preview
 Set these when deploying:
 
 ```bash
-VITE_SITE_URL=https://shuttlescore.app
-VITE_APP_STORE_URL=https://apps.apple.com/app/your-real-app-id
-VITE_SUPPORT_EMAIL=support@shuttlescore.app
+VITE_SITE_URL=https://sevix-badminton.netlify.app
+VITE_APP_STORE_URL=https://apps.apple.com/app/id6764564793
+VITE_SUPPORT_EMAIL=support@sevix.app
 VITE_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 ```
 
@@ -41,9 +41,8 @@ VITE_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 
 ## Replace Before Public Launch
 
-- Real App Store URL.
-- Real support email.
+- Confirm `support@sevix.app` mailbox is active.
 - Final privacy policy and terms reviewed for launch.
-- Final `VITE_SITE_URL`, `public/sitemap.xml`, and `public/robots.txt`.
+- Optional: register `sevix.app` and connect it in Netlify Domain management if you want a custom branded domain.
 - Final social links.
 - Final pricing labels once subscriptions are live.

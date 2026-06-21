@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="footer-cta">
         <div>
           <p className="eyebrow">Next rally</p>
-          <h2>Score fast. Train smarter.</h2>
+          <h2>{siteConfig.tagline}</h2>
         </div>
         <AppStoreButton source="footer" />
       </div>

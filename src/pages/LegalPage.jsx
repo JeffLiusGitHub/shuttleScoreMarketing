@@ -5,7 +5,7 @@ const content = {
     eyebrow: 'Privacy',
     title: 'Privacy Policy',
     intro:
-      'ShuttleScore is designed around local match review. This policy explains the types of data the app may handle and how support or analytics data should be treated.',
+      'Sevix is designed around local match review. This policy explains the types of data the app may handle and how support or analytics data should be treated.',
     sections: [
       {
         title: 'Data handled by the app',
@@ -33,22 +33,22 @@ const content = {
     eyebrow: 'Terms',
     title: 'Terms of Service',
     intro:
-      'These terms describe the expected use of ShuttleScore, including the app, Apple Watch experience, subscription features, and this marketing website.',
+      'These terms describe the expected use of Sevix, including the app, Apple Watch experience, subscription features, and this marketing website.',
     sections: [
       {
-        title: 'Using ShuttleScore',
+        title: 'Using Sevix',
         body:
-          'ShuttleScore is provided for badminton scoring, match history, Apple Watch score entry, fitness context, recovery review, and training insights. You may use the product for personal, non-commercial purposes and must not misuse, copy, reverse engineer, interfere with, or attempt to disrupt the app, website, or related services.'
+          'Sevix is provided for badminton scoring, match history, Apple Watch score entry, fitness context, recovery review, and training insights. You may use the product for personal, non-commercial purposes and must not misuse, copy, reverse engineer, interfere with, or attempt to disrupt the app, website, or related services.'
       },
       {
         title: 'Training and health information',
         body:
-          'ShuttleScore provides scoring, match review, fitness context, and training insights for informational purposes only. It is not medical advice, diagnosis, treatment, or a substitute for advice from a qualified healthcare professional or coach. You are responsible for judging your own condition, stopping activity when you feel unwell, and seeking professional help when needed.'
+          'Sevix provides scoring, match review, fitness context, and training insights for informational purposes only. It is not medical advice, diagnosis, treatment, or a substitute for advice from a qualified healthcare professional or coach. You are responsible for judging your own condition, stopping activity when you feel unwell, and seeking professional help when needed.'
       },
       {
         title: 'User responsibility',
         body:
-          'You are responsible for the match data, scores, settings, and other information you enter or choose to use with ShuttleScore. Insights depend on the information available to the app and may be incomplete, delayed, or inaccurate. Do not rely on ShuttleScore as the sole basis for training, competition, health, safety, or medical decisions.'
+          'You are responsible for the match data, scores, settings, and other information you enter or choose to use with Sevix. Insights depend on the information available to the app and may be incomplete, delayed, or inaccurate. Do not rely on Sevix as the sole basis for training, competition, health, safety, or medical decisions.'
       },
       {
         title: 'Subscriptions and purchases',
@@ -58,22 +58,22 @@ const content = {
       {
         title: 'Privacy and fitness data',
         body:
-          'Your use of ShuttleScore is also governed by the Privacy Policy at /privacy. Health, fitness, motion, workout, and heart-rate information should only be used to provide app functionality and user-facing insights. ShuttleScore does not sell that data or use it for advertising. If optional analytics, support, subscription management, Apple services, or device sync are used, related data handling is described in the Privacy Policy.'
+          'Your use of Sevix is also governed by the Privacy Policy at /privacy. Health, fitness, motion, workout, and heart-rate information should only be used to provide app functionality and user-facing insights. Sevix does not sell that data or use it for advertising. If optional analytics, support, subscription management, Apple services, or device sync are used, related data handling is described in the Privacy Policy.'
       },
       {
         title: 'Availability and changes',
         body:
-          'ShuttleScore may change over time. Features, pricing, subscription benefits, platform integrations, and website content may be updated, paused, or removed. We may update these terms when the product, legal requirements, or business model changes. Continued use after an update means you accept the updated terms.'
+          'Sevix may change over time. Features, pricing, subscription benefits, platform integrations, and website content may be updated, paused, or removed. We may update these terms when the product, legal requirements, or business model changes. Continued use after an update means you accept the updated terms.'
       },
       {
         title: 'Intellectual property',
         body:
-          'ShuttleScore, including its name, branding, app design, website, text, graphics, and software, is owned by ShuttleScore or its licensors. These terms do not transfer ownership of any intellectual property rights to you.'
+          'Sevix, including its name, branding, app design, website, text, graphics, and software, is owned by Sevix or its licensors. These terms do not transfer ownership of any intellectual property rights to you.'
       },
       {
         title: 'Disclaimers and liability',
         body:
-          'ShuttleScore is provided as is and as available. We do not guarantee that the app, website, scores, sync, analytics, training insights, or subscription features will always be accurate, available, uninterrupted, or error-free. To the maximum extent permitted by law, ShuttleScore is not liable for indirect, incidental, special, consequential, or punitive damages, or for losses related to training decisions, sports performance, physical activity, data loss, service interruptions, or third-party platforms.'
+          'Sevix is provided as is and as available. We do not guarantee that the app, website, scores, sync, analytics, training insights, or subscription features will always be accurate, available, uninterrupted, or error-free. To the maximum extent permitted by law, Sevix is not liable for indirect, incidental, special, consequential, or punitive damages, or for losses related to training decisions, sports performance, physical activity, data loss, service interruptions, or third-party platforms.'
       },
       {
         title: 'Updates',

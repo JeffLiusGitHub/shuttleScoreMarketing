@@ -12,7 +12,7 @@ import {
 import { Link } from 'react-router-dom';
 import AppStoreButton from '../components/AppStoreButton.jsx';
 import { CoachInsightMockup, HeroProductMockup, MatchSetupMockup, ProgressMockup } from '../components/ProductMockups.jsx';
-import { features, pricingTiers } from '../data/site.js';
+import { features, pricingTiers, siteConfig } from '../data/site.js';
 
 const iconMap = {
   watch: Watch,
@@ -34,10 +34,10 @@ export default function HomePage() {
               <span><Apple size={16} aria-hidden="true" /> Watch + iPhone</span>
               <span><Lock size={16} aria-hidden="true" /> Local coach</span>
             </div>
-            <h1>ShuttleScore</h1>
-            <p className="hero-subtitle">Score fast. Train smarter.</p>
+            <h1>{siteConfig.appName}</h1>
+            <p className="hero-subtitle">{siteConfig.tagline}</p>
             <p className="hero-text">
-              Score on Apple Watch. Show the match on iPhone. Get local coaching after the final rally.
+              Score each rally on Apple Watch. Keep iPhone synced courtside. Review the evidence when the match ends.
             </p>
             <div className="hero-actions">
               <AppStoreButton source="hero_primary" />
