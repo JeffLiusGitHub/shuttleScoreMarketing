@@ -1,5 +1,6 @@
 import {
   Apple,
+  ArrowRight,
   Brain,
   HeartPulse,
   Hexagon,
@@ -12,7 +13,7 @@ import {
 import { Link } from 'react-router-dom';
 import AppStoreButton from '../components/AppStoreButton.jsx';
 import { CoachInsightMockup, HeroProductMockup, MatchSetupMockup, ProgressMockup } from '../components/ProductMockups.jsx';
-import { features, pricingTiers, siteConfig } from '../data/site.js';
+import { campaignTeasers, features, homepageFaqs, pricingTiers, siteConfig, trustSignals } from '../data/site.js';
 
 const iconMap = {
   watch: Watch,
@@ -51,6 +52,17 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="section trust-signal-section" aria-label="Sevix trust signals">
+        <div className="trust-signal-grid">
+          {trustSignals.map((signal) => (
+            <div className="trust-signal" key={signal.value}>
+              <strong>{signal.value}</strong>
+              <span>{signal.label}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section className="section content-band" id="features">
         <div className="section-heading">
           <p className="eyebrow">Core features</p>
@@ -71,6 +83,23 @@ export default function HomePage() {
               </article>
             );
           })}
+        </div>
+      </section>
+
+      <section className="section campaign-teaser-section">
+        <div className="section-heading">
+          <p className="eyebrow">Campaign pages</p>
+          <h2>Match the page to the player.</h2>
+          <p>Use focused pages for QR codes, search ads, club posts, and coach referrals.</p>
+        </div>
+        <div className="campaign-teaser-grid">
+          {campaignTeasers.map((campaign) => (
+            <Link className="campaign-teaser-card" to={campaign.href} key={campaign.href}>
+              <h3>{campaign.title}</h3>
+              <p>{campaign.description}</p>
+              <span>{campaign.cta} <ArrowRight size={17} aria-hidden="true" /></span>
+            </Link>
+          ))}
         </div>
       </section>
 
@@ -147,7 +176,28 @@ export default function HomePage() {
                   <li key={item}>{item}</li>
                 ))}
               </ul>
+              <AppStoreButton
+                source={`pricing_${tier.name.toLowerCase()}`}
+                variant={tier.highlighted ? 'primary' : 'secondary'}
+              >
+                {tier.name === 'Free' ? 'Start scoring free' : 'Download on the App Store'}
+              </AppStoreButton>
             </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section faq-section">
+        <div className="section-heading">
+          <p className="eyebrow">Questions</p>
+          <h2>Before the next session.</h2>
+        </div>
+        <div className="faq-list">
+          {homepageFaqs.map((item) => (
+            <details className="faq-item" key={item.question}>
+              <summary>{item.question}</summary>
+              <p>{item.answer}</p>
+            </details>
           ))}
         </div>
       </section>

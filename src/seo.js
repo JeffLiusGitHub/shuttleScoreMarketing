@@ -1,3 +1,4 @@
+import { campaigns, findCampaign } from './data/campaigns.js';
 import { findGuide, guides } from './data/guides.js';
 import { siteConfig } from './data/site.js';
 
@@ -52,6 +53,21 @@ export function getPageMeta(url) {
       description:
         'Decision-focused guides about Apple Watch badminton scoring, local AI coaching, heart-rate insights, recovery, singles, and doubles.'
     };
+  }
+
+  if (pathname.startsWith('/campaign/')) {
+    const slug = pathname.split('/').filter(Boolean)[1];
+    const campaign = findCampaign(slug);
+
+    if (campaign) {
+      return {
+        ...baseMeta,
+        pathname,
+        title: campaign.metaTitle,
+        description: campaign.metaDescription,
+        campaign
+      };
+    }
   }
 
   if (pathname.startsWith('/guides/')) {
@@ -124,19 +140,26 @@ function softwareJsonLd() {
 }
 
 function guideJsonLd(guide) {
+  return faqJsonLd([
+    {
+      question: guide.question,
+      answer: guide.answer
+    }
+  ]);
+}
+
+function faqJsonLd(items) {
   return {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: [
-      {
+    mainEntity: items.map((item) => ({
         '@type': 'Question',
-        name: guide.question,
+        name: item.question,
         acceptedAnswer: {
           '@type': 'Answer',
-          text: guide.answer
+          text: item.answer
         }
-      }
-    ]
+      }))
   };
 }
 
@@ -149,6 +172,17 @@ export function renderHead(meta) {
 
   if (meta.guide) {
     jsonLd.push(guideJsonLd(meta.guide));
+  }
+
+  if (meta.campaign) {
+    jsonLd.push({
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      name: meta.campaign.title,
+      description: meta.campaign.metaDescription,
+      url: canonical(meta.pathname)
+    });
+    jsonLd.push(faqJsonLd(meta.campaign.faq));
   }
 
   const gaId = process.env.VITE_GA_MEASUREMENT_ID || '';
@@ -233,4 +267,8 @@ function setLink(rel, href) {
 
 export function guideSitemapEntries() {
   return guides.map((guide) => `/guides/${guide.slug}`);
+}
+
+export function campaignSitemapEntries() {
+  return campaigns.map((campaign) => `/campaign/${campaign.slug}`);
 }

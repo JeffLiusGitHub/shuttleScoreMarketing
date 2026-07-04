@@ -11,6 +11,8 @@
 - [x] Added Sevix visual assets from the app bundle.
 - [x] Added product-style iPhone, Apple Watch, AI coach, and progress chart mockups.
 - [x] Added guide content for awareness, evaluation, comparison, and decision stages.
+- [x] Added focused campaign landing pages for Apple Watch badminton scoring and club trial QR traffic.
+- [x] Added homepage trust signals, campaign entry cards, pricing CTAs, and FAQ objections.
 - [x] Added privacy, terms, and contact pages.
 - [x] Added README, robots, sitemap, default OG image, and deployment notes.
 
@@ -21,6 +23,7 @@
 - [x] Run local SSR server.
 - [x] Verify homepage SSR response returns `200 OK`.
 - [x] Verify homepage and guide detail include route-level SEO and JSON-LD.
+- [x] Add campaign page route metadata, FAQ JSON-LD, prerender entries, and sitemap entries.
 - [x] Add automatic fallback to the next local port when `127.0.0.1:5173` is already in use.
 - [x] Update production Netlify project/default URL for Sevix (`https://sevix-badminton.netlify.app`).
 - [x] Deploy Sevix marketing page to Netlify production and verify homepage/privacy URLs are live.

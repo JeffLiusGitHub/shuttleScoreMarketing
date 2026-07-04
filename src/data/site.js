@@ -1,10 +1,23 @@
+const viteEnv = import.meta.env || {};
+const nodeEnv = typeof process === 'undefined' ? {} : process.env;
+
+function readEnv(name, fallback = '') {
+  return viteEnv[name] || nodeEnv[name] || fallback;
+}
+
+const defaultAppStoreUrl = readEnv('VITE_APP_STORE_URL', 'https://apps.apple.com/app/id6764564793');
+
 export const siteConfig = {
   appName: 'Sevix',
   tagline: 'Score the rally. Train with evidence.',
   description: 'Apple Watch scoring, iPhone scoreboard, and local coaching evidence for badminton.',
-  siteUrl: import.meta.env.VITE_SITE_URL || 'https://sevix-badminton.netlify.app',
-  appStoreUrl: import.meta.env.VITE_APP_STORE_URL || 'https://apps.apple.com/app/id6764564793',
-  supportEmail: import.meta.env.VITE_SUPPORT_EMAIL || 'support@sevix.app',
+  siteUrl: readEnv('VITE_SITE_URL', 'https://sevix-badminton.netlify.app'),
+  appStoreUrl: defaultAppStoreUrl,
+  campaignAppStoreUrls: {
+    appleWatch: readEnv('VITE_APP_STORE_URL_APPLE_WATCH', defaultAppStoreUrl),
+    clubTrial: readEnv('VITE_APP_STORE_URL_CLUB_TRIAL', defaultAppStoreUrl)
+  },
+  supportEmail: readEnv('VITE_SUPPORT_EMAIL', 'support@sevix.app'),
   copyrightName: 'Sevix',
   socialLinks: [
     { label: 'X', href: '#coming-soon' },
@@ -54,6 +67,36 @@ export const features = [
   }
 ];
 
+export const trustSignals = [
+  {
+    value: 'Watch + iPhone',
+    label: 'Score from the wrist, keep the large board on the phone.'
+  },
+  {
+    value: 'Singles + doubles',
+    label: 'Set up common club match formats before play starts.'
+  },
+  {
+    value: 'Local review',
+    label: 'Review score flow, heart rate, notes, and coach evidence without video.'
+  }
+];
+
+export const campaignTeasers = [
+  {
+    title: 'Apple Watch badminton scoring',
+    description: 'A focused landing page for players searching for a wrist-first scoring flow.',
+    href: '/campaign/apple-watch-badminton-scoring',
+    cta: 'Open campaign page'
+  },
+  {
+    title: 'Club trial kit',
+    description: 'A QR-ready page for club nights, coaches, and feedback collection.',
+    href: '/campaign/club-trial',
+    cta: 'Open club page'
+  }
+];
+
 export const pricingTiers = [
   {
     name: 'Free',
@@ -73,5 +116,28 @@ export const pricingTiers = [
     price: 'One-time',
     description: 'Own the coach.',
     items: ['All Pro features', 'Lifetime access', 'Future coaching upgrades']
+  }
+];
+
+export const homepageFaqs = [
+  {
+    question: 'Do I need Apple Watch to use Sevix?',
+    answer:
+      'Sevix is built around Apple Watch scoring and iPhone review. The best flow is to score from Watch during play and review on iPhone after the match.'
+  },
+  {
+    question: 'Does Sevix support doubles?',
+    answer:
+      'Yes. Sevix supports singles and doubles match setup, including scoring flow, server context, history, notes, and post-match review.'
+  },
+  {
+    question: 'Does the coach require video or cloud analysis?',
+    answer:
+      'No. Sevix focuses on local, explainable review from the point timeline, workout data, heart-rate context, motion summaries, and match history.'
+  },
+  {
+    question: 'What should a club player try first?',
+    answer:
+      'Use Sevix for one singles or doubles game: set the match, score each rally from Watch, then check the iPhone match history after play.'
   }
 ];

@@ -33,11 +33,14 @@ Set these when deploying:
 ```bash
 VITE_SITE_URL=https://sevix-badminton.netlify.app
 VITE_APP_STORE_URL=https://apps.apple.com/app/id6764564793
+VITE_APP_STORE_URL_APPLE_WATCH=https://apps.apple.com/app/id6764564793
+VITE_APP_STORE_URL_CLUB_TRIAL=https://apps.apple.com/app/id6764564793
 VITE_SUPPORT_EMAIL=support@sevix.app
 VITE_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 ```
 
 `VITE_GA_MEASUREMENT_ID` is optional. The site works without analytics.
+The campaign App Store URLs can point to Apple Custom Product Page URLs when they are available.
 
 ## Replace Before Public Launch
 

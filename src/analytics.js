@@ -8,11 +8,13 @@ export function trackEvent(name, params = {}) {
   }
 }
 
-export function trackDownload(source) {
+export function trackDownload(source, params = {}) {
   trackEvent('app_store_click', {
     source,
     content_type: 'landing_cta',
-    item_id: 'app_store'
+    item_id: 'app_store',
+    page_path: typeof window === 'undefined' ? undefined : window.location.pathname,
+    ...params
   });
 }
 

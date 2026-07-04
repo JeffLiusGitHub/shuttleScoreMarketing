@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import PageShell from './components/PageShell.jsx';
+import CampaignPage from './pages/CampaignPage.jsx';
 import ContactPage from './pages/ContactPage.jsx';
 import GuideDetailPage from './pages/GuideDetailPage.jsx';
 import GuidesPage from './pages/GuidesPage.jsx';
@@ -12,6 +13,7 @@ export default function App() {
     <PageShell>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/campaign/:slug" element={<CampaignPage />} />
         <Route path="/guides" element={<GuidesPage />} />
         <Route path="/guides/:slug" element={<GuideDetailPage />} />
         <Route path="/privacy" element={<LegalPage type="privacy" />} />

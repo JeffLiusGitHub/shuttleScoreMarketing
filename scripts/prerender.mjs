@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { campaigns } from '../src/data/campaigns.js';
 import { guides } from '../src/data/guides.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -11,6 +12,7 @@ const { render } = await import('../dist/server/entry-server.js');
 
 const routes = [
   '/',
+  ...campaigns.map((campaign) => `/campaign/${campaign.slug}`),
   '/guides',
   ...guides.map((guide) => `/guides/${guide.slug}`),
   '/privacy',

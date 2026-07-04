@@ -1,11 +1,37 @@
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
+import { findCampaign } from '../data/campaigns.js';
 import { navLinks, siteConfig } from '../data/site.js';
 import AppStoreButton from './AppStoreButton.jsx';
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const location = useLocation();
+  const campaignSlug = location.pathname.startsWith('/campaign/') ? location.pathname.split('/').filter(Boolean)[1] : '';
+  const campaign = findCampaign(campaignSlug);
+
+  if (campaign) {
+    return (
+      <header className="site-header campaign-header">
+        <div className="header-inner">
+          <Link className="brand-link" to="/" aria-label={`${siteConfig.appName} home`}>
+            <img src="/assets/app-icon.png" alt="" />
+            <span>{siteConfig.appName}</span>
+          </Link>
+
+          <nav className="campaign-nav-minimal" aria-label="Campaign navigation">
+            <Link className="nav-link" to="/privacy">Privacy</Link>
+            <AppStoreButton
+              source={`${campaign.sourcePrefix}_nav`}
+              href={campaign.appStoreUrl}
+              campaignId={campaign.slug}
+            />
+          </nav>
+        </div>
+      </header>
+    );
+  }
 
   return (
     <header className="site-header">
