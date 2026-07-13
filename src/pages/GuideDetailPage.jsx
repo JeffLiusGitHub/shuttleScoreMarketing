@@ -25,7 +25,9 @@ export default function GuideDetailPage() {
   const related = relatedGuides(guide);
 
   return (
-    <article className="article-page">
+    <div className="velocity-page">
+      <div className="velocity-speed-lines" aria-hidden="true" />
+      <article className="article-page">
       <Link className="back-link" to="/guides">
         <ArrowLeft size={17} aria-hidden="true" /> Back to guides
       </Link>
@@ -91,6 +93,7 @@ export default function GuideDetailPage() {
           </div>
         </section>
       ) : null}
-    </article>
+      </article>
+    </div>
   );
 }

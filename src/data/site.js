@@ -17,7 +17,7 @@ export const siteConfig = {
     appleWatch: readEnv('VITE_APP_STORE_URL_APPLE_WATCH', defaultAppStoreUrl),
     clubTrial: readEnv('VITE_APP_STORE_URL_CLUB_TRIAL', defaultAppStoreUrl)
   },
-  supportEmail: readEnv('VITE_SUPPORT_EMAIL', 'support@sevix.app'),
+  supportEmail: readEnv('VITE_SUPPORT_EMAIL', 'sevixcoach@gmail.com'),
   copyrightName: 'Sevix',
   socialLinks: [
     { label: 'X', href: '#coming-soon' },
@@ -36,33 +36,33 @@ export const navLinks = [
 
 export const features = [
   {
-    title: 'Watch Scoring',
-    description: 'Pinch, tap, or turn the Crown.',
+    title: 'Wrist Motion Tracking',
+    description: 'Apple Watch detects swing, step pace, and intensity automatically.',
     icon: 'watch'
   },
   {
-    title: 'iPhone Scoreboard',
-    description: 'Big score, server, side, and time.',
-    icon: 'radar'
-  },
-  {
-    title: 'Match Setup',
-    description: 'Singles, doubles, points, games, colours.',
-    icon: 'setup'
-  },
-  {
     title: 'Heart Rate Context',
-    description: 'See when fatigue changes points.',
+    description: 'See exactly when fatigue starts losing you points.',
     icon: 'heart'
   },
   {
-    title: 'Local AI Coach',
-    description: 'A clear next drill after each match.',
+    title: 'Point Ownership',
+    description: 'Who lost that rally? The AI checks serve, swings, and pressure to attribute responsibility.',
+    icon: 'radar'
+  },
+  {
+    title: 'Detailed Recovery',
+    description: 'Breaks fatigue into Cardio, Neural, Muscular, and Pacing types.',
+    icon: 'setup'
+  },
+  {
+    title: 'Causal AI Coach',
+    description: 'Transparent reasoning. No black boxes. A clear drill backed by match evidence.',
     icon: 'brain'
   },
   {
     title: 'History and Trends',
-    description: 'Notes, filters, and progress trends.',
+    description: 'Review notes, filters, and progress trends without needing video.',
     icon: 'history'
   }
 ];
@@ -121,6 +121,10 @@ export const pricingTiers = [
 
 export const homepageFaqs = [
   {
+    question: 'How does the Local AI Coach work?',
+    answer: 'The AI coach combines your match score timeline, Apple Watch heart rate, wrist motion data (swings/steps), and historical Hexagon stats. It runs completely locally on your device to generate highly specific training drills (e.g., "Receive Under Fatigue") backed by causal evidence.'
+  },
+  {
     question: 'Do I need Apple Watch to use Sevix?',
     answer:
       'Sevix is built around Apple Watch scoring and iPhone review. The best flow is to score from Watch during play and review on iPhone after the match.'
@@ -128,16 +132,11 @@ export const homepageFaqs = [
   {
     question: 'Does Sevix support doubles?',
     answer:
-      'Yes. Sevix supports singles and doubles match setup, including scoring flow, server context, history, notes, and post-match review.'
+      'Yes. Sevix supports singles and doubles match setup, including scoring flow, server context, history, and our unique Point Ownership attribution to see who won or lost the key rallies.'
   },
   {
     question: 'Does the coach require video or cloud analysis?',
     answer:
-      'No. Sevix focuses on local, explainable review from the point timeline, workout data, heart-rate context, motion summaries, and match history.'
-  },
-  {
-    question: 'What should a club player try first?',
-    answer:
-      'Use Sevix for one singles or doubles game: set the match, score each rally from Watch, then check the iPhone match history after play.'
+      'No. Sevix focuses on local, explainable review from the point timeline, workout data, heart-rate context, motion summaries, and match history. Completely private. No video required.'
   }
 ];

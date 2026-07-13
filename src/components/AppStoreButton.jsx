@@ -5,7 +5,7 @@ import { trackDownload } from '../analytics.js';
 export default function AppStoreButton({
   source = 'unknown',
   variant = 'primary',
-  children = 'Download on the App Store',
+  children = 'Get the App',
   href = siteConfig.appStoreUrl,
   campaignId,
   className = ''

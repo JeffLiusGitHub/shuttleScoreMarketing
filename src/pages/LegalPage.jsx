@@ -3,7 +3,8 @@ import { siteConfig } from '../data/site.js';
 const content = {
   privacy: {
     eyebrow: 'Privacy',
-    title: 'Privacy Policy',
+    title: 'Privacy',
+    titleAccent: 'Policy.',
     intro:
       'Sevix is designed around local match review. This policy explains the types of data the app may handle and how support or analytics data should be treated.',
     sections: [
@@ -31,7 +32,8 @@ const content = {
   },
   terms: {
     eyebrow: 'Terms',
-    title: 'Terms of Service',
+    title: 'Terms of',
+    titleAccent: 'Service.',
     intro:
       'These terms describe the expected use of Sevix, including the app, Apple Watch experience, subscription features, and this marketing website.',
     sections: [
@@ -88,27 +90,30 @@ export default function LegalPage({ type }) {
   const page = content[type] || content.privacy;
 
   return (
-    <section className="legal-page">
-      <div className="page-heading">
-        <p className="eyebrow">{page.eyebrow}</p>
-        <h1>{page.title}</h1>
-        <p>{page.intro}</p>
-      </div>
+    <div className="velocity-page">
+      <div className="velocity-speed-lines" aria-hidden="true" />
+      <section className="legal-page">
+        <div className="page-heading">
+          <span className="velocity-eyebrow">{page.eyebrow}</span>
+          <h1>{page.title}<br /><em>{page.titleAccent}</em></h1>
+          <p>{page.intro}</p>
+        </div>
 
-      <div className="legal-content">
-        {page.sections.map((section) => (
-          <section key={section.title}>
-            <h2>{section.title}</h2>
-            <p>{section.body}</p>
+        <div className="legal-content">
+          {page.sections.map((section) => (
+            <section key={section.title}>
+              <h2>{section.title}</h2>
+              <p>{section.body}</p>
+            </section>
+          ))}
+          <section>
+            <h2>Contact</h2>
+            <p>
+              Questions can be sent to <a href={`mailto:${siteConfig.supportEmail}`}>{siteConfig.supportEmail}</a>.
+            </p>
           </section>
-        ))}
-        <section>
-          <h2>Contact</h2>
-          <p>
-            Questions can be sent to <a href={`mailto:${siteConfig.supportEmail}`}>{siteConfig.supportEmail}</a>.
-          </p>
-        </section>
-      </div>
-    </section>
+        </div>
+      </section>
+    </div>
   );
 }

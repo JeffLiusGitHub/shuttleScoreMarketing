@@ -5,10 +5,12 @@ import { guides } from '../data/guides.js';
 
 export default function GuidesPage() {
   return (
-    <section className="page-section">
+    <div className="velocity-page">
+      <div className="velocity-speed-lines" aria-hidden="true" />
+      <section className="page-section">
       <div className="page-heading">
-        <p className="eyebrow">Guides</p>
-        <h1>Badminton scoring and local coaching questions.</h1>
+        <span className="velocity-eyebrow">Guides</span>
+        <h1>Scoring questions.<br /><em>Coaching answers.</em></h1>
         <p>
           Short decision guides for players comparing Apple Watch scoring, match review, heart-rate context, and local AI
           coaching.
@@ -33,6 +35,7 @@ export default function GuidesPage() {
           </Link>
         ))}
       </div>
-    </section>
+      </section>
+    </div>
   );
 }

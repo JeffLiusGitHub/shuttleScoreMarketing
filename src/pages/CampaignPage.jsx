@@ -7,11 +7,24 @@ import {
   ShieldCheck,
   Watch
 } from 'lucide-react';
+import { Fragment } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import AppStoreButton from '../components/AppStoreButton.jsx';
 import { HeroProductMockup, MatchSetupMockup } from '../components/ProductMockups.jsx';
 import { findCampaign } from '../data/campaigns.js';
+import { siteConfig } from '../data/site.js';
 import NotFoundPage from './NotFoundPage.jsx';
+
+function LinkifiedEmailText({ text }) {
+  const email = siteConfig.supportEmail;
+  const parts = text.split(email);
+  return parts.map((part, index) => (
+    <Fragment key={index}>
+      {part}
+      {index < parts.length - 1 ? <a href={`mailto:${email}`}>{email}</a> : null}
+    </Fragment>
+  ));
+}
 
 const stepIcons = [QrCode, Watch, ClipboardCheck];
 
@@ -104,7 +117,7 @@ export default function CampaignPage() {
           <div>
             <p className="eyebrow">Offer</p>
             <h2>{campaign.offer.title}</h2>
-            <p>{campaign.offer.text}</p>
+            <p><LinkifiedEmailText text={campaign.offer.text} /></p>
           </div>
           <AppStoreButton
             source={`${campaign.sourcePrefix}_offer`}
@@ -139,7 +152,7 @@ export default function CampaignPage() {
           href={campaign.appStoreUrl}
           campaignId={campaign.slug}
         >
-          Download on the App Store
+          Get the App
         </AppStoreButton>
         <Link className="campaign-secondary-link" to="/contact">
           Need a club link? Contact support <ArrowRight size={17} aria-hidden="true" />
