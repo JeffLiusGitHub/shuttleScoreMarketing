@@ -2453,20 +2453,28 @@ body {
 
 .velocity-hero-demo {
   position: relative;
+  width: min(650px, 100%);
   transform: rotate(-3deg);
   animation: velocity-pop 900ms cubic-bezier(0.22, 1, 0.36, 1) 350ms both;
 }
 
 .velocity-scoreboard-shell {
+  --phone-bezel: 14px;
   position: relative;
+  aspect-ratio: 1.74;
+  width: 100%;
   overflow: hidden;
   border-radius: 18px;
   background: #0b0f17;
   box-shadow: 0 24px 60px rgba(7, 22, 41, 0.30);
-  padding: 14px;
+  padding: var(--phone-bezel);
 }
 
 .velocity-scoreboard-screen {
+  position: absolute;
+  inset: var(--phone-bezel);
+  display: grid;
+  grid-template-rows: auto auto 1fr;
   overflow: hidden;
   color: #ffffff;
   background:
@@ -2503,7 +2511,8 @@ body {
   grid-template-columns: minmax(0, 1fr) 24px minmax(0, 1fr);
   align-items: center;
   gap: 12px;
-  padding: 18px 26px 20px;
+  min-height: 0;
+  padding: clamp(12px, 2.2vw, 18px) 26px 20px;
 }
 
 .velocity-score-side {
@@ -2539,7 +2548,7 @@ body {
   position: relative;
   display: grid;
   place-items: center;
-  height: 112px;
+  height: clamp(76px, 13vw, 112px);
   border: 0;
   border-radius: 12px;
   background: linear-gradient(180deg, #1c1f26 0 50%, #0b0d12 50% 100%);
@@ -2632,7 +2641,7 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 18px;
+  margin-top: clamp(138px, 13vw, 156px);
 }
 
 .velocity-demo-actions button {
@@ -2716,8 +2725,9 @@ body {
 }
 
 .velocity-watch {
-  right: -84px;
-  bottom: -30px;
+  right: clamp(12px, 4vw, 28px);
+  top: clamp(140px, 18vw, 220px);
+  bottom: auto;
   z-index: 3;
 }
 
@@ -3049,8 +3059,9 @@ body {
     width: 150px;
     height: 188px;
     border-width: 8px;
-    right: -10px;
-    bottom: -24px;
+    right: 10px;
+    top: clamp(132px, 35vw, 176px);
+    bottom: auto;
   }
 
   .sevix-watch-screen {
@@ -4034,6 +4045,30 @@ body {
     width: min(100% - 28px, 1240px);
   }
 
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 18px;
+  }
+
+  .footer-brand {
+    display: contents;
+  }
+
+  .footer-brand .brand-link {
+    grid-column: 1 / -1;
+  }
+
+  .footer-brand p {
+    grid-column: 1 / -1;
+    order: 20;
+    max-width: none;
+    margin: 0;
+  }
+
+  .footer-grid a {
+    overflow-wrap: anywhere;
+  }
+
   .velocity-hero {
     padding: 46px 0 76px;
   }
@@ -4059,7 +4094,7 @@ body {
   }
 
   .velocity-scoreboard-shell {
-    padding: 9px;
+    --phone-bezel: 9px;
     border-radius: 16px;
   }
 
