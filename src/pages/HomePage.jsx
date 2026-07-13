@@ -181,6 +181,17 @@ function ScoreTileGroup({ score, active }) {
   );
 }
 
+function WatchScoreTiles({ score, team, active }) {
+  const digits = String(score).padStart(2, '0').split('');
+  return (
+    <div className={`sw-tiles ${team} ${active ? 'on' : ''}`}>
+      {digits.map((digit, index) => (
+        <span key={index}>{digit}</span>
+      ))}
+    </div>
+  );
+}
+
 function HeroScoreboard() {
   const [score, setScore] = useState({ home: 7, guest: 4 });
   const [selected, setSelected] = useState('home');
@@ -226,7 +237,6 @@ function HeroScoreboard() {
 
   const mins = String(Math.floor(seconds / 60)).padStart(2, '0');
   const secs = String(seconds % 60).padStart(2, '0');
-  const server = selected === 'home' ? 'Me' : 'B1';
   const serviceSide = score[selected] % 2 === 0 ? 'Right' : 'Left';
 
   return (
@@ -234,10 +244,23 @@ function HeroScoreboard() {
       <div className="velocity-scoreboard-shell">
         <div className="velocity-scoreboard-screen">
           <div className="velocity-scoreboard-top">
-            <span>{userTookOver ? 'Your rally' : 'Auto demo'}</span>
+            <span className="sp-back">&#8249; Back</span>
             <strong>
               {mins}:{secs}
             </strong>
+            <span className="sp-lock">
+              <Lock size={13} aria-hidden="true" /> Long press to lock
+            </span>
+          </div>
+
+          <div className="sp-server-pill">
+            <span>
+              Server <b className={`sp-val ${selected}`}>{selected === 'home' ? 'Me' : 'B1'}</b>
+            </span>
+            <i aria-hidden="true" />
+            <span>
+              Service Side <b className="sp-val">{serviceSide === 'Left' ? 'L' : 'R'}</b>
+            </span>
           </div>
 
           <div className="velocity-scoreboard-main">
@@ -245,30 +268,49 @@ function HeroScoreboard() {
               <ScoreTileGroup score={score.home} active={selected === 'home'} />
               <strong className={selected === 'home' ? 'active' : ''}>Home</strong>
             </button>
-            <span className="velocity-score-divider" aria-hidden="true">
-              <i />
-              <i />
-            </span>
+            <span className="sp-colon" aria-hidden="true">:</span>
             <button className="velocity-score-side" type="button" onClick={() => addPoint('guest')}>
               <ScoreTileGroup score={score.guest} active={selected === 'guest'} />
               <strong className={selected === 'guest' ? 'active' : ''}>Guest</strong>
             </button>
           </div>
-
-          <div className="velocity-scoreboard-meta">
-            <span>
-              Server <strong>{server}</strong>
-            </span>
-            <span>
-              Side <strong>{serviceSide}</strong>
-            </span>
-            <em>
-              <i />
-              {userTookOver ? 'Manual' : 'Live demo'}
-            </em>
-          </div>
         </div>
       </div>
+
+      <div className="watch-frame velocity-watch" aria-label="Apple Watch live score preview">
+        <div className="watch-screen sevix-watch-screen">
+          <div className="sw-top">
+            <span className="sw-back" aria-hidden="true">‹</span>
+            <span className="sw-heart">57</span>
+            <span className="sw-clock">9:42</span>
+          </div>
+          <div className="sw-score">
+            <div className="sw-score-side">
+              <WatchScoreTiles score={score.home} team="home" active={selected === 'home'} />
+              <em className={`sw-pill home ${selected === 'home' ? 'on' : ''}`}>Me</em>
+            </div>
+            <i className="sw-colon" aria-hidden="true">:</i>
+            <div className="sw-score-side">
+              <WatchScoreTiles score={score.guest} team="guest" active={selected === 'guest'} />
+              <em className={`sw-pill guest ${selected === 'guest' ? 'on' : ''}`}>B1</em>
+            </div>
+          </div>
+          <div className="sw-court" aria-hidden="true">
+            <span className="sw-line one" />
+            <span className="sw-line two" />
+            <span className="sw-line vert" />
+            <b className={`sw-player away ${selected === 'guest' ? 'on' : ''}`}>B1</b>
+            <b className={`sw-player me ${selected === 'home' ? 'on' : ''}`}>Me</b>
+          </div>
+          <div className="sw-bottom">
+            <span className="sw-pause" aria-hidden="true">&#10074;&#10074;</span>
+            <em className={`sw-server ${selected}`}>{selected === 'home' ? 'Me' : 'B1'}</em>
+            <strong className="sw-side-label">{serviceSide}</strong>
+          </div>
+          <div className="sw-footer">Game 1 · {mins}:{secs}</div>
+        </div>
+      </div>
+
       <div className="velocity-demo-actions">
         <button type="button" onClick={() => addPoint('home')}>Home +1</button>
         <button type="button" onClick={() => addPoint('guest')}>Guest +1</button>
@@ -332,6 +374,14 @@ function useShuttleTracker() {
           at: 0
         };
       });
+
+      if (!isMobile && points.length > 1) {
+        points.splice(1, 0, {
+          x: vw - radius - 24,
+          y: (points[0].y + points[1].y) / 2,
+          at: 0
+        });
+      }
 
       const buttonRect = finalTarget.getBoundingClientRect();
       points.push({

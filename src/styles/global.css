@@ -2470,8 +2470,8 @@ body {
   overflow: hidden;
   color: #ffffff;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(0, 0, 0, 0.14)),
-    linear-gradient(104deg, #4bd946 0 49%, #071629 49% 51%, #266cf7 51% 100%);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.14), rgba(0, 0, 0, 0.10)),
+    linear-gradient(90deg, #e8641c 0 50%, #2563eb 50% 100%);
 }
 
 .velocity-scoreboard-top,
@@ -2536,16 +2536,29 @@ body {
 }
 
 .velocity-score-digit {
+  position: relative;
   display: grid;
   place-items: center;
   height: 112px;
-  border: 2px solid rgba(255, 255, 255, 0.25);
-  background: linear-gradient(180deg, #12171c, #05080d);
+  border: 0;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #1c1f26 0 50%, #0b0d12 50% 100%);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
   color: #ffffff;
   font-size: 4.2rem;
   font-weight: 800;
   line-height: 1;
   animation: velocity-digit 500ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.velocity-score-digit::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 2px;
+  background: rgba(0, 0, 0, 0.65);
 }
 
 .velocity-score-side > strong {
@@ -2699,6 +2712,375 @@ body {
   .shuttle-tracker img {
     width: 50px;
     height: 50px;
+  }
+}
+
+.velocity-watch {
+  right: -84px;
+  bottom: -30px;
+  z-index: 3;
+}
+
+.sevix-watch-screen {
+  display: grid;
+  grid-template-rows: auto auto 1fr auto auto;
+  gap: 6px;
+  padding: 11px 9px 8px;
+  background: #000000;
+  color: #ffffff;
+}
+
+.sw-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.sw-back {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 900;
+  line-height: 1;
+  padding-bottom: 2px;
+}
+
+.sw-heart {
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.sw-heart::before {
+  content: "\2665";
+  color: #ff3b30;
+  margin-right: 3px;
+}
+
+.sw-clock {
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffb340;
+  font-size: 0.76rem;
+  font-weight: 900;
+  padding: 3px 8px;
+}
+
+.sw-clock::before {
+  content: "\23F1";
+  margin-right: 2px;
+}
+
+.sw-score {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: start;
+  gap: 5px;
+}
+
+.sw-score-side {
+  display: grid;
+  justify-items: center;
+  gap: 3px;
+}
+
+.sw-tiles {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3px;
+  width: 100%;
+}
+
+.sw-tiles span {
+  display: grid;
+  place-items: center;
+  height: 36px;
+  border-radius: 8px;
+  font-size: 1.5rem;
+  font-weight: 950;
+  line-height: 1;
+  color: #ffffff;
+}
+
+.sw-tiles.home span {
+  background: linear-gradient(180deg, #ff9f3c, #f97316);
+}
+
+.sw-tiles.guest span {
+  background: linear-gradient(180deg, #3b82f6, #1d4ed8);
+}
+
+.sw-tiles.on span {
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.35), inset 0 0 0 1px rgba(255, 255, 255, 0.45);
+}
+
+.sw-colon {
+  align-self: center;
+  color: #ffffff;
+  font-size: 1.3rem;
+  font-style: normal;
+  font-weight: 950;
+  padding-top: 2px;
+}
+
+.sw-pill {
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.6rem;
+  font-style: normal;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  padding: 2px 9px;
+}
+
+.sw-pill.home.on {
+  background: #f97316;
+  color: #ffffff;
+}
+
+.sw-pill.guest.on {
+  background: #2469f5;
+  color: #ffffff;
+}
+
+.sw-court {
+  position: relative;
+  min-height: 62px;
+  overflow: hidden;
+  border-radius: 6px;
+  background: linear-gradient(180deg, #0f8a3d, #0a5f2b);
+  clip-path: polygon(12% 0, 88% 0, 100% 100%, 0 100%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.sw-line {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.sw-line.one,
+.sw-line.two {
+  left: 0;
+  right: 0;
+  height: 2px;
+}
+
+.sw-line.one {
+  top: 30%;
+}
+
+.sw-line.two {
+  top: 62%;
+}
+
+.sw-line.vert {
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+}
+
+.sw-player {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  min-width: 32px;
+  height: 20px;
+  border-radius: 999px;
+  font-size: 0.62rem;
+  font-weight: 950;
+}
+
+.sw-player.away {
+  top: 6px;
+  left: 26%;
+  background: #2469f5;
+  color: #ffffff;
+}
+
+.sw-player.me {
+  bottom: 7px;
+  right: 14%;
+  background: rgba(0, 0, 0, 0.62);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.sw-player.on {
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.55), 0 0 14px rgba(255, 255, 255, 0.45);
+}
+
+.sw-bottom {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.sw-pause {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+  font-size: 0.6rem;
+  font-weight: 900;
+}
+
+.sw-server {
+  display: grid;
+  place-items: center;
+  min-width: 40px;
+  height: 26px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-style: normal;
+  font-weight: 950;
+  padding: 0 8px;
+}
+
+.sw-server.home {
+  background: #f97316;
+}
+
+.sw-server.guest {
+  background: #2469f5;
+}
+
+.sw-side-label {
+  display: grid;
+  place-items: center;
+  flex: 1;
+  height: 26px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  font-size: 0.82rem;
+  font-weight: 950;
+}
+
+.sw-footer {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+/* Sevix phone scoreboard (orange/blue split) */
+.velocity-scoreboard-top .sp-back,
+.velocity-scoreboard-top .sp-lock {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.velocity-scoreboard-top .sp-lock {
+  font-size: 0.66rem;
+  max-width: 96px;
+  text-align: right;
+  opacity: 0.92;
+  line-height: 1.25;
+}
+
+.velocity-scoreboard-top .sp-lock svg {
+  flex: 0 0 auto;
+}
+
+.sp-server-pill {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  width: fit-content;
+  margin: 12px auto 0;
+  border-radius: 999px;
+  background: rgba(6, 11, 22, 0.55);
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 7px 16px;
+  backdrop-filter: blur(8px);
+}
+
+.sp-server-pill i {
+  width: 1px;
+  height: 15px;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.sp-server-pill .sp-val {
+  margin-left: 4px;
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 950;
+}
+
+.sp-server-pill .sp-val.home {
+  color: #ffb340;
+}
+
+.sp-server-pill .sp-val.guest {
+  color: #8ab8ff;
+}
+
+.sp-colon {
+  align-self: center;
+  margin-bottom: 36px;
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 950;
+  text-align: center;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 940px) {
+  .velocity-watch {
+    width: 150px;
+    height: 188px;
+    border-width: 8px;
+    right: -10px;
+    bottom: -24px;
+  }
+
+  .sevix-watch-screen {
+    gap: 4px;
+    padding: 8px 7px 6px;
+  }
+
+  .sw-tiles span {
+    height: 27px;
+    border-radius: 6px;
+    font-size: 1.12rem;
+  }
+
+  .sw-court {
+    min-height: 44px;
+  }
+
+  .sw-pause,
+  .sw-server,
+  .sw-side-label {
+    height: 21px;
+  }
+
+  .sw-pause {
+    width: 21px;
+  }
+
+  .sw-server,
+  .sw-side-label {
+    font-size: 0.66rem;
   }
 }
 
