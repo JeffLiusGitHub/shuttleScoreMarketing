@@ -1,5 +1,5 @@
 import { Menu, X } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { findCampaign } from '../data/campaigns.js';
 import { navLinks, siteConfig } from '../data/site.js';
@@ -10,6 +10,11 @@ export default function Header() {
   const location = useLocation();
   const campaignSlug = location.pathname.startsWith('/campaign/') ? location.pathname.split('/').filter(Boolean)[1] : '';
   const campaign = findCampaign(campaignSlug);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle('mobile-nav-open', open);
+    return () => document.documentElement.classList.remove('mobile-nav-open');
+  }, [open]);
 
   if (campaign) {
     return (
@@ -53,33 +58,30 @@ export default function Header() {
           <AppStoreButton source="nav_desktop" />
         </div>
 
-        <button className="mobile-menu-button" type="button" aria-label="Open navigation menu" onClick={() => setOpen(true)}>
-          <Menu size={23} aria-hidden="true" />
+        <button
+          className="mobile-menu-button"
+          type="button"
+          aria-label={open ? 'Close navigation menu' : 'Open navigation menu'}
+          aria-expanded={open}
+          onClick={() => setOpen((value) => !value)}
+        >
+          {open ? <X size={23} aria-hidden="true" /> : <Menu size={23} aria-hidden="true" />}
         </button>
       </div>
 
       {open ? (
-        <div className="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu">
-          <div className="mobile-menu-top">
-            <Link className="brand-link" to="/" onClick={() => setOpen(false)}>
-              <img src="/assets/app-icon.png" alt="" />
-              <span>{siteConfig.appName}</span>
-            </Link>
-            <button className="mobile-menu-button" type="button" aria-label="Close navigation menu" onClick={() => setOpen(false)}>
-              <X size={23} aria-hidden="true" />
-            </button>
+        <>
+          <button className="mobile-menu-backdrop" type="button" aria-label="Close navigation menu" onClick={() => setOpen(false)} />
+          <div className="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+            <nav className="mobile-nav" aria-label="Mobile navigation">
+              {navLinks.map((link) => (
+                <NavLink key={link.href} to={link.href} className="mobile-nav-link" onClick={() => setOpen(false)}>
+                  {link.label}
+                </NavLink>
+              ))}
+            </nav>
           </div>
-
-          <nav className="mobile-nav" aria-label="Mobile navigation">
-            {navLinks.map((link) => (
-              <NavLink key={link.href} to={link.href} className="mobile-nav-link" onClick={() => setOpen(false)}>
-                {link.label}
-              </NavLink>
-            ))}
-          </nav>
-
-          <AppStoreButton source="nav_mobile" />
-        </div>
+        </>
       ) : null}
     </header>
   );
