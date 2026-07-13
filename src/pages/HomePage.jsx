@@ -292,11 +292,6 @@ function useShuttleTracker() {
     let glowTarget = null;
     function update() {
       rafId = 0;
-      if (window.innerWidth <= 880) {
-        shuttle.style.opacity = '0';
-        return;
-      }
-
       const targets = Array.from(document.querySelectorAll('[data-shuttle-target]'));
       const finalTarget = document.querySelector('.footer-cta .app-store-button') || finalRef.current;
       if (!targets.length || !finalTarget) {
@@ -307,7 +302,8 @@ function useShuttleTracker() {
       const vw = window.innerWidth;
       const sy = window.scrollY;
       const maxScroll = Math.max(1, document.documentElement.scrollHeight - vh);
-      const radius = 59;
+      const isMobile = vw <= 880;
+      const radius = isMobile ? 36 : 59;
       const points = targets.map((target) => {
         const rect = target.getBoundingClientRect();
         const range = document.createRange();
@@ -318,8 +314,11 @@ function useShuttleTracker() {
           textRight = Math.max(textRight, lineRect.right);
           textLeft = Math.min(textLeft, lineRect.left);
         }
+        const side = (isMobile && target.dataset.shuttleSideMobile) || target.dataset.shuttleSide;
         let x;
-        if (target.dataset.shuttleSide === 'left') {
+        if (isMobile) {
+          x = side === 'left' ? radius + 8 : vw - radius - 8;
+        } else if (side === 'left') {
           x = Math.max(radius + 10, textLeft - 42 - radius);
         } else {
           x = textRight + 42 + radius;
@@ -621,7 +620,7 @@ export default function HomePage() {
       <section className="velocity-section velocity-container" id="features">
         <div className="velocity-section-heading">
           <span className="velocity-eyebrow">Core features</span>
-          <h2 data-shuttle-target>Built for<br /><em>the rally.</em></h2>
+          <h2 data-shuttle-target data-shuttle-side-mobile="left">Built for<br /><em>the rally.</em></h2>
         </div>
         <div className="velocity-court-grid">
           <span className="court-outline" aria-hidden="true" />

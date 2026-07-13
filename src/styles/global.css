@@ -2690,6 +2690,18 @@ body {
   mask-image: radial-gradient(circle, #000 0%, #000 52%, transparent 76%);
 }
 
+@media (max-width: 880px) {
+  .shuttle-tracker > div {
+    width: 72px;
+    height: 72px;
+  }
+
+  .shuttle-tracker img {
+    width: 50px;
+    height: 50px;
+  }
+}
+
 .velocity-marquee {
   position: relative;
   z-index: 2;
@@ -3595,7 +3607,6 @@ body {
   }
 
   .hero-shuttle-badge,
-  .shuttle-tracker,
   .court-outline,
   .court-inner,
   .court-lines,
